@@ -1,0 +1,14 @@
+{
+  "name": "nodeapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodeapi/app.js",
+  "scripts": {
+    "dev": "nodemon nodeapi/app.js"
+  },
+  "engines": {
+    "node": "10.15.0"
+  },
+  "author": "",
+  "license": "ISC",
+}

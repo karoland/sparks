@@ -3,14 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "dev": "nodemon app.js"
-  },
-  "engines": {
-    "node": "10.15.0"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
