@@ -536,7 +536,6 @@ app.get('/api/posts/:userId', auth, (req,res)=>{
 })
 
 app.get('/api/friendsPosts/:userId', auth, async (req,res)=>{
-//    console.log("POSTY id", req.profile)
 
     await User.findOne({_id: req.auth._id}, (err,user)=>{
         if (err) {
