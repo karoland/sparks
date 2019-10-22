@@ -26,8 +26,11 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET
 });
 
+//mongoose.connect(config.DB,{ useMongoClient:true });
+
 //mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE, { useNewUrlParser: true })
+console.log("DB", process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, { useNewUrlParser: true})
 .then(() => console.log("DB Connected"));
 
 mongoose.connection.on("error", err => {
