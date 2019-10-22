@@ -4,7 +4,10 @@
   "description": "",
 
   "scripts": {
-    "dev": "nodemon nodeapi/app.js"
+    "dev": "nodemon nodeapi/app.js",
+    "frontend-react": "npm run start --prefix frontend-react",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend-react && npm run build --prefix frontend-react"
+
   },
   "engines": {
     "node": "10.15.0"

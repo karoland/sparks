@@ -29,8 +29,7 @@ cloudinary.config({
 //mongoose.connect(config.DB,{ useMongoClient:true });
 
 //mongoose.Promise = global.Promise;
-console.log("DB", process.env.DATABASE);
-mongoose.connect(process.env.DATABASE, { useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true})
 .then(() => console.log("DB Connected"));
 
 mongoose.connection.on("error", err => {
@@ -46,6 +45,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
 
+app.use(express.static('frontend-react/build'))
 
 
 // Models
@@ -790,6 +790,14 @@ app.get('/api/getAllMessages/:userId', auth, (req,res)=>{
         res.status(401).json({ error: "Unauthorized" });
     }
 });*/
+
+// DEFAULT 
+if( process.env.NODE_ENV === 'production' ){
+    const path = require('path');
+    app.get('/*',(req,res)=>{
+        res.sendfile(path.resolve(__dirname,'../client','build','index.html'))
+    })
+}
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
